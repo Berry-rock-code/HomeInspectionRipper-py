@@ -1,0 +1,16 @@
+# HTTP
+httpx==0.27.2
+
+# Web server
+fastapi==0.115.5
+uvicorn[standard]==0.32.1
+
+# Data models
+pydantic==2.9.2
+
+# PDF → images (wraps pdftoppm — install poppler-utils on your OS)
+pdf2image==1.17.0
+Pillow==11.0.0
+
+# Environment
+python-dotenv==1.0.1
