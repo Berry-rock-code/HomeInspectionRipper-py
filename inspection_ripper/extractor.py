@@ -135,13 +135,13 @@ class Extractor:
 
     def _extract_demographics(self, data: dict, findings: InspectionFindings) -> None:
         prop = data.get("property", {})
-        findings.property.address = prop.get("address", "")
-        findings.property.bedrooms = int(prop.get("bedrooms", 0))
-        findings.property.bathrooms = int(prop.get("bathrooms", 0))
-        findings.property.square_footage = int(prop.get("square_footage", 0))
-        findings.property.year_built = int(prop.get("year_built", 0))
-        findings.overall_condition = data.get("overall_condition", "")
-        findings.notes = data.get("notes", "")
+        findings.property.address = prop.get("address") or ""
+        findings.property.bedrooms = int(prop.get("bedrooms") or 0)
+        findings.property.bathrooms = int(prop.get("bathrooms") or 0)
+        findings.property.square_footage = int(prop.get("square_footage") or 0)
+        findings.property.year_built = int(prop.get("year_built") or 0)
+        findings.overall_condition = data.get("overall_condition") or ""
+        findings.notes = data.get("notes") or ""
 
     def _extract_damage(self, data: dict, findings: InspectionFindings) -> None:
         category_map = {
@@ -158,6 +158,6 @@ class Extractor:
                     category=category,
                     severity=item.get("severity", ""),
                     description=item.get("description", ""),
-                    page_number=int(item.get("page_number", 0)),
+                    page_number=int(item.get("page_number") or 0),
                     requires_sub_report=bool(item.get("requires_sub_report", False)),
                 ))
