@@ -80,6 +80,8 @@ def cmd_extract(args: argparse.Namespace) -> None:
         status = "OK" if r.success else "FAIL"
         retry = " (retried)" if r.retried else ""
         print(f"  [{status}] {r.agent_name:<15} {r.execution_time_ms:>6.0f} ms{retry}")
+        if not r.success and r.error_message:
+            print(f"         ERROR: {r.error_message}")
     print("\n--- Property ---")
     print(f"  Address:    {findings.property.address}")
     print(f"  Beds/Baths: {findings.property.bedrooms} / {findings.property.bathrooms}")

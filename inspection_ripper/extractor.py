@@ -120,7 +120,10 @@ class Extractor:
             if not result.success:
                 continue
             try:
-                data = json.loads(result.result) if isinstance(result.result, str) else result.result
+                raw = result.result
+                if isinstance(raw, str):
+                    raw = raw.strip().removeprefix("```json").removeprefix("```").removesuffix("```").strip()
+                data = json.loads(raw) if isinstance(raw, str) else raw
             except (json.JSONDecodeError, TypeError):
                 continue
 
