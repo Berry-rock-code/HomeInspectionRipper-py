@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import base64
-import json
 
 import httpx
 
@@ -48,7 +46,7 @@ class GrokClient:
         # 2. Build the request body
         body = {
             "model": self.model,
-            "max_comletion_tokens": _MAX_TOKENS,
+            "max_completion_tokens": _MAX_TOKENS,
             "messages": [
                 {"role": "user", "content": content}
             ],
@@ -68,10 +66,9 @@ class GrokClient:
         text = data["choices"][0]["message"]["content"]
         tokens = {
             "input_tokens": data["usage"]["prompt_tokens"],
-            "output_tokens": data["usage"]["output_tokens"],
+            "output_tokens": data["usage"]["completion_tokens"],
         }
         return text, tokens
-        pass
 
     def _build_headers(self) -> dict[str, str]:
         return {

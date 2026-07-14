@@ -4,11 +4,11 @@ A Python tool that extracts structured data from home inspection PDF reports usi
 
 ## Documentation
 
-- [Architecture](.github/ARCHITECTURE.md) — how the system is structured and how data flows through it
-- [Data Model](.github/DATA_MODEL.md) — all Pydantic models and their fields
-- [Setup](.github/SETUP.md) — installation, configuration, and running locally
-- [Runbook](.github/RUNBOOK.md) — operating the service, debugging, and Cloud Run logs
-- [Decisions](.github/DECISIONS.md) — why key technical choices were made
+- [Architecture](ARCHITECTURE.md) — how the system is structured and how data flows through it
+- [Data Model](DATA_MODEL.md) — all Pydantic models and their fields
+- [Setup](SETUP.md) — installation, configuration, and running locally
+- [Runbook](RUNBOOK.md) — operating the service, debugging, and Cloud Run logs
+- [Decisions](DECISIONS.md) — why key technical choices were made
 
 ## Quick Start
 
