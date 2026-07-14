@@ -12,7 +12,6 @@ from .models import (
     AgentResult,
     DamageCategory,
     InspectionFindings,
-    PropertyInfo,
 )
 
 

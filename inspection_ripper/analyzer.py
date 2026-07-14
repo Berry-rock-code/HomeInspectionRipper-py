@@ -176,27 +176,27 @@ class Analyzer:
         print(f"  Success rate: {report.overall_success_rate:.1f}%")
         print(f"  Avg time:     {report.avg_exec_time_ms:.0f} ms")
 
-        print(f"\n--- Agent Performance ---")
+        print("\n--- Agent Performance ---")
         for name, stats in sorted(report.agent_performance.items(), key=lambda x: -x[1].success_rate):
             retry = f" ({stats.retries_needed} retries)" if stats.retries_needed else ""
             print(f"  {name:<15} {stats.success_rate:5.1f}%  {stats.avg_exec_time_ms:>6.0f} ms  {stats.total_tokens} tokens{retry}")
 
-        print(f"\n--- Field Completion ---")
+        print("\n--- Field Completion ---")
         for name, rate in sorted(report.field_completion_rate.items(), key=lambda x: -x[1]):
             print(f"  {name:<30} {rate:.1f}%")
 
-        print(f"\n--- Damage Summary ---")
+        print("\n--- Damage Summary ---")
         d = report.damage_stats
         print(f"  Foundation: {d.foundation}  Roof: {d.roof}  HVAC: {d.hvac}")
         print(f"  Electrical: {d.electrical}  Plumbing: {d.plumbing}  Other: {d.other}")
-        print(f"\n--- Severity ---")
+        print("\n--- Severity ---")
         print(f"  Critical: {d.critical}  High: {d.high}  Medium: {d.medium}  Low: {d.low}")
 
-        print(f"\n--- Token Usage ---")
+        print("\n--- Token Usage ---")
         print(f"  Input:  {report.token_stats.get('input_tokens', 0)}")
         print(f"  Output: {report.token_stats.get('output_tokens', 0)}")
 
-        print(f"\n--- Insights ---")
+        print("\n--- Insights ---")
         for i, insight in enumerate(report.insights, 1):
             print(f"  {i}. {insight}")
         print(f"{'=' * w}\n")

@@ -75,18 +75,18 @@ def cmd_extract(args: argparse.Namespace) -> None:
     print(f"Output:       {output_path}")
     print(f"Total time:   {elapsed:.0f} ms")
     print(f"Tokens:       in={total_tokens['input_tokens']}  out={total_tokens['output_tokens']}")
-    print(f"\n--- Agent results ---")
+    print("\n--- Agent results ---")
     for r in agent_results:
         status = "OK" if r.success else "FAIL"
         retry = " (retried)" if r.retried else ""
         print(f"  [{status}] {r.agent_name:<15} {r.execution_time_ms:>6.0f} ms{retry}")
-    print(f"\n--- Property ---")
+    print("\n--- Property ---")
     print(f"  Address:    {findings.property.address}")
     print(f"  Beds/Baths: {findings.property.bedrooms} / {findings.property.bathrooms}")
     print(f"  Sq ft:      {findings.property.square_footage}")
     print(f"  Year built: {findings.property.year_built}")
     print(f"  Condition:  {findings.overall_condition}")
-    print(f"\n--- Damage ---")
+    print("\n--- Damage ---")
     print(f"  Foundation: {len(findings.foundation)}")
     print(f"  Roof:       {len(findings.roof)}")
     print(f"  HVAC:       {len(findings.hvac)}")

@@ -1,7 +1,6 @@
 import unittest
 
 import json
-from pathlib import Path
 
 from inspection_ripper.logger import Logger
 from inspection_ripper.models import AgentResult, ExtractionLog

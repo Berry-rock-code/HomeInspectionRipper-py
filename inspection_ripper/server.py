@@ -102,7 +102,7 @@ def _download_sf_file(
     """
     url = (
             instance_url.rstrip("/")
-            + f"/services/data/v59.0/sobjects/ContentVersion"
+            + "/services/data/v59.0/sobjects/ContentVersion"
             + f"/{file_ref.content_version_id}/VersionData"
     )
     response = httpx.get(
@@ -129,7 +129,6 @@ def _download_sf_file(
 def create_app(api_key: str) -> FastAPI:
     """Wire a GrokClient into the app via dependency injection."""
     client = GrokClient(api_key=api_key)
-    extractor = Extractor(client=client)
 
     @app.post("/process", response_model=ProcessResponse, include_in_schema=False)
     def _process(req: ProcessRequest) -> ProcessResponse:
