@@ -4,7 +4,7 @@ from __future__ import annotations
 import httpx
 
 _GROK_URL = "https://api.x.ai/v1/chat/completions"
-_DEFAULT_MODEL = "grok-4.3"
+_DEFAULT_MODEL = "grok-4-5-latest"
 _MAX_TOKENS = 4096
 
 
